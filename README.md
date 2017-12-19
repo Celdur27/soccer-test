@@ -16,5 +16,5 @@ npm install
 
 3. Run app
 ```sh
-mg serve --open
+ng serve --open
 ```
