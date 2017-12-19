@@ -1,0 +1,24 @@
+<div id="soccer-buttons" [ngSwitch]="playStatus">
+  <button class="btn" *ngSwitchCase="'paused'" (click)="startPlaying()">Start Play</button>
+  <button class="btn" *ngSwitchCase="'played'" (click)="stopPlaying()">Pause Play</button>
+</div>
+
+<div id="soccer-field">
+    <div *ngFor="let player of playersAttrs">
+        <app-soccer-player [playerAttr]='player'></app-soccer-player>
+    </div>
+</div>
+
+<div id="soccer-slider">
+    <div class="slider-container">
+        <input type="range" min="0" max="{{ numberOfSteps-1 }}" value="{{ interval }}" [(ngModel)]="a" (ngModelChange)="onChange($event)" class="slider" id="myRange">      
+    </div>
+    <div class="soccer-timers">
+        <div class="timer">
+            {{ timer }}
+        </div>
+        <div class="timer-end">
+            {{ fullTime }}
+        </div>
+    </div>
+</div>
